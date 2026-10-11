@@ -20,7 +20,7 @@ export const hero = {
   pre: "Happy Birthday,",
   name: HIS_NAME,
   urdu: "سالگرہ مبارک",
-  tagline: "A film in seven reels. Starring you. Directed, badly, by your girlfriend.",
+  tagline: "A film in many, many reels. Starring you. Directed, badly, by your girlfriend.",
   scrollHint: "scroll, jaan",
 };
 
@@ -54,14 +54,14 @@ export const shayari: {
     credit: "— Ghalib, lightly vandalised",
   },
   {
-    urdu: ["چائے میں چینی کم تھی، مگر تم جو آ گئے", "مٹھاس اتنی بڑھی کہ شربت شرما گئے"],
-    roman: ["Chai mein cheeni kam thi, magar tum jo aa gaye", "Mithaas itni badhi ke sharbat sharma gaye"],
+    urdu: ["چائے میں چینی کم تھی، مگر آپ جو آ گئے", "مٹھاس اتنی بڑھی کہ شربت شرما گئے"],
+    roman: ["Chai mein cheeni kam thi, magar aap jo aa gaye", "Mithaas itni badhi ke sharbat sharma gaye"],
     english: "There wasn't enough sugar in my tea, but then you walked in, and the sweetness got so strong even the sharbat blushed.",
     credit: "— Kuchu Puchu, original",
   },
   {
-    urdu: ["غالب کے درد کی دوا نہ ہوئی، نہ سہی", "میرا علاج تم ہو، اور دردِ سر بھی"],
-    roman: ["Ghalib ke dard ki dawa na hui, na sahi", "Mera ilaaj tum ho, aur dard-e-sar bhi"],
+    urdu: ["غالب کے درد کی دوا نہ ہوئی، نہ سہی", "میرا علاج آپ ہیں، اور دردِ سر بھی"],
+    roman: ["Ghalib ke dard ki dawa na hui, na sahi", "Mera ilaaj aap hain, aur dard-e-sar bhi"],
     english: "Ghalib never found a cure for his pain, fine. You're my cure, and also my headache.",
     credit: "— Kuchu Puchu, original",
   },
@@ -70,11 +70,11 @@ export const shayari: {
 // ---- 3. Reasons you're loved (film credits) ------------------------
 export const reasonsTitle = { roman: "Wajah", urdu: "وجوہات", english: "Reasons you're loved" };
 export const reasons: { text: string; urduWord?: string }[] = [
-  { text: "Tumhari hasi meri bad mood ki sabse badi dushman hai.", urduWord: "ہنسی" },
-  { text: "Tum khaana share karte ho… kabhi kabhi.", urduWord: "کھانا" },
-  { text: "Tumhare saath chup rehna bhi boring nahi lagta.", urduWord: "خاموشی" },
-  { text: "Tum meri har bakwaas ko seriously sunte ho.", urduWord: "بکواس" },
-  { text: "Aur sabse bada reason: tum Shayan ho. Bas.", urduWord: "بس" },
+  { text: "Aapki hasi meri bad mood ki sabse badi dushman hai.", urduWord: "ہنسی" },
+  { text: "Aap khaana share karte hain… kabhi kabhi.", urduWord: "کھانا" },
+  { text: "Aapke saath chup rehna bhi boring nahi lagta.", urduWord: "خاموشی" },
+  { text: "Aap meri har bakwaas ko seriously sunte hain.", urduWord: "بکواس" },
+  { text: "Aur sabse bada reason: aap Shayan hain. Bas.", urduWord: "بس" },
 ];
 
 // ---- 4. Film strip ---------------------------------------------------
@@ -89,23 +89,89 @@ export const frames = [
 
 // ---- 5. Candle -------------------------------------------------------
 export const candle = {
-  prompt: "Phoonk maaro. Tap, ya hold karo.",
-  after: "Ab wish maango…",
+  prompt: "Phoonk maariye. Tap kijiye, ya hold kijiye.",
+  after: "Ab wish maangiye…",
   afterEnglish: "(make a wish)",
 };
 
 // ---- 6. Letter -------------------------------------------------------
 export const letter = {
-  envelopeHint: "Ek chitthi. Sirf tumhare liye. Tap to open.",
+  envelopeHint: "Ek chitthi. Sirf aapke liye. Tap to open.",
   body: `Shayan,
 Happy Birthday, meri jaan.
-Tum meri zindagi ke sabse achhe plot twist ho.
-Tumhare saath har din thoda zyada khoobsurat lagta hai, aur thoda zyada pagal bhi.
-Yeh website banane mein 3 raatein lagi, shukar karo. 😌
-Hamesha tumhari,
+Aap meri zindagi ke sabse achhe plot twist hain.
+Aapke saath har din thoda zyada khoobsurat lagta hai, aur thoda zyada pagal bhi.
+Yeh website banane mein 3 raatein lagi, shukar kijiye. 😌
+Hamesha aapki,
 Kuchu Puchu`,
-  urduEnd: "تم میرے ہو، یہی کافی ہے",
+  urduEnd: "آپ میرے ہیں، یہی کافی ہے",
   urduEndEnglish: "You're mine; that's enough.",
+};
+
+// ---- 8. Encore: a few more shers (placed after the letter) ----------
+export const encore: typeof shayari = [
+  {
+    urdu: ["وہ آئے گھر میں ہمارے، خدا کی قدرت ہے", "کبھی ہم ان کو، کبھی اپنے گھر کو دیکھتے ہیں"],
+    roman: ["Woh aaye ghar mein hamare, khuda ki qudrat hai", "Kabhi hum unko, kabhi apne ghar ko dekhte hain"],
+    english: "They've come to my house, what a miracle. I keep looking at them, then at my house, then at them.",
+    note: "this is me every time you walk in.",
+    credit: "— Mirza Ghalib",
+  },
+  {
+    urdu: ["عشق نے غالبؔ نکمّا کر دیا", "ورنہ ہم بھی آدمی تھے کام کے"],
+    roman: ["Ishq ne Ghalib nikamma kar diya", "Warna hum bhi aadmi the kaam ke"],
+    english: "Love made Ghalib useless. Otherwise, he too was a man of some use.",
+    note: "and that's why this website took 3 raatein.",
+    credit: "— Mirza Ghalib",
+  },
+  {
+    urdu: ["ہم کو معلوم ہے جنت کی حقیقت لیکن", "دل کے خوش رکھنے کو غالبؔ یہ خیال اچھا ہے"],
+    roman: ["Hum ko maaloom hai jannat ki haqeeqat lekin", "Dil ke khush rakhne ko Ghalib yeh khayal achha hai"],
+    english: "We know the truth about paradise, but to keep the heart happy, it's a nice thought.",
+    note: "meri jannat? Aapke saath wala Sunday.",
+    credit: "— Mirza Ghalib",
+  },
+];
+
+// ---- 9. Her poem (one verse per screen) -----------------------------
+export const poem = {
+  label: "REEL 09 · IN HER OWN WORDS",
+  title: "The Boy in the Rain",
+  urdu: "بارش",
+  intro: "Ab kuch alfaaz, jo Kuchu Puchu ne khud likhe.",
+  by: "— written by Kuchu Puchu",
+  stanzas: [
+    [
+      "From a rainy-night park to a text on my phone,",
+      "From a month of shy glances to feeling less alone,",
+      "From the twenty-third of May to the first time we kissed",
+      "You've become all those little moments I never want to miss.",
+    ],
+    [
+      "And if I could return to that night in the rain,",
+      "I'd let myself fall all over again.",
+      "I'd let myself blush, let my nervous heart race,",
+      "And I'd still find my way to that same little place.",
+    ],
+    [
+      "For I didn't know then what I know today,",
+      "That a boy in the rain would change me this way.",
+      "I didn't know one small moment could start",
+      "A story I'd carry so deep in my heart.",
+    ],
+    [
+      "And if forever is made of a thousand small choices,",
+      "I'd choose you through the silence, the storms, and the noises.",
+      "I'd choose you in the beginning, the middle, the end",
+      "As my favourite love, my lover, my best friend.",
+    ],
+    [
+      "And Shayan, if there's one thing I hope you'll always know,",
+      "It's that no matter how far the days may go,",
+      "Before you were mine, you were the boy in the rain",
+      "And I'd fall for you, my love, all over again.",
+    ],
+  ],
 };
 
 // ---- 7. End card -----------------------------------------------------

@@ -386,6 +386,92 @@ export function Letter() {
   );
 }
 
+/* ---------------- 8. ENCORE (more shers) ---------------- */
+export function Encore() {
+  return (
+    <>
+      {C.encore.map((s, i) => (
+        <Couplet key={i} s={s} i={C.shayari.length + i} />
+      ))}
+    </>
+  );
+}
+
+/* ---------------- 9. HER POEM ---------------- */
+// Light on purpose: only opacity + translate animate (GPU-friendly), no blur filters.
+const rise = (on: boolean, d: number) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: on ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 },
+  transition: { delay: d, duration: 0.9, ease },
+});
+
+function usePoemView() {
+  const ref = useRef<HTMLElement>(null);
+  const seen = useInView(ref, { amount: 0.2, once: true });
+  return { ref, seen };
+}
+
+export function Poem() {
+  const { ref, seen } = usePoemView();
+  const will = { willChange: "transform, opacity" } as const;
+  return (
+    <>
+      <section ref={ref} className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-6 py-24 md:px-16">
+        <span aria-hidden className="urdu pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none text-[48vw] text-gold/[0.04] md:text-[28vw]">
+          {C.poem.urdu}
+        </span>
+        <motion.span {...rise(seen, 0)} style={will} className="relative font-sans text-[10px] tracking-[0.5em] text-cherry-bright">
+          {C.poem.label}
+        </motion.span>
+        <motion.h2 {...rise(seen, 0.2)} style={will} className="relative mt-6 font-display text-[16vw] italic leading-[0.9] text-gold glow-gold md:text-[9vw]">
+          {C.poem.title}
+        </motion.h2>
+        <motion.p {...rise(seen, 0.6)} style={will} className="relative mt-8 max-w-sm font-hand text-2xl text-foreground md:text-3xl">
+          {C.poem.intro}
+        </motion.p>
+        <motion.p {...rise(seen, 0.9)} style={will} className="relative mt-2 font-sans text-[10px] tracking-[0.3em] text-muted-foreground/70">
+          {C.poem.by}
+        </motion.p>
+      </section>
+      {C.poem.stanzas.map((st, i) => (
+        <Stanza key={i} lines={st} i={i} last={i === C.poem.stanzas.length - 1} />
+      ))}
+    </>
+  );
+}
+
+function Stanza({ lines, i, last }: { lines: string[]; i: number; last: boolean }) {
+  const { ref, seen } = usePoemView();
+  const right = i % 2 === 1;
+  return (
+    <section ref={ref} className="relative flex min-h-[90svh] items-center overflow-hidden px-6 py-20 md:px-16">
+      <div className={`relative flex w-full max-w-3xl flex-col gap-4 ${right ? "ml-auto md:items-end md:text-right" : ""}`}>
+        <motion.span
+          {...rise(seen, 0)}
+          className="font-sans text-[10px] tracking-[0.5em] text-cherry-bright"
+        >
+          VERSE {String(i + 1).padStart(2, "0")} / {String(C.poem.stanzas.length).padStart(2, "0")}
+        </motion.span>
+        {lines.map((l, k) => {
+          const hot = last && k >= 2;
+          return (
+            <motion.p
+              key={k}
+              {...rise(seen, 0.15 + k * 0.35)}
+              style={{ willChange: "transform, opacity" }}
+              className={`font-display text-3xl italic leading-snug md:text-5xl ${
+                hot ? "text-cherry-bright glow-text" : "text-foreground"
+              }`}
+            >
+              {l}
+            </motion.p>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- 7. END CARD ---------------- */
 export function EndCard() {
   const [taps, setTaps] = useState(0);

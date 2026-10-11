@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import * as C from "@/content";
 import { Atmosphere, CursorFx, Particles, ProgressLine } from "@/components/birthday/Effects";
-import { Candle, EndCard, FilmStrip, Hero, Letter, Reasons, Shayari } from "@/components/birthday/Sections";
+import { Candle, Encore, EndCard, FilmStrip, Hero, Letter, Poem, Reasons, Shayari } from "@/components/birthday/Sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -80,6 +80,8 @@ function Index() {
         <FilmStrip />
         <Candle />
         <Letter />
+        <Encore />
+        <Poem />
         <EndCard />
       </div>
 
